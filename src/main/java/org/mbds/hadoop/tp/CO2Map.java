@@ -50,7 +50,7 @@ public class CO2Map extends Mapper<LongWritable, Text, Text, Text> {
 		// Gestion colonne Malus/Bonus
 		String malus_bonus = splitted_line[2];
         context.write(new Text(key.toString()),new Text(malus_bonus));
-		/*malus_bonus = malus_bonus.replaceAll(" ", "").replace("€1", "").replace("€", "").replace("\"", "");
+		malus_bonus = malus_bonus.replaceAll(" ", "").replace("€1", "").replace("€", "").replace("\"", "");
 
 		if (malus_bonus.equals("150kW(204ch)") || malus_bonus.equals("100kW(136ch)"))
 		{
@@ -59,10 +59,10 @@ public class CO2Map extends Mapper<LongWritable, Text, Text, Text> {
 
 		if (malus_bonus.length() == 1){
 			malus_bonus="0";
-		}*/
+		}
 
 		// Gestion colonne cout energie
-		/*String cout;
+		String cout;
 		cout = splitted_line[4];
 		String[] cout_splitted = cout.split(" ");
 		if(cout_splitted.length == 2){  // ex : |967,€]
@@ -81,6 +81,6 @@ public class CO2Map extends Mapper<LongWritable, Text, Text, Text> {
 		// couple clé/valeurs
 		String new_value = String.valueOf(malus_bonus_int) + "|" +  String.valueOf(rejet_int) + "|" + String.valueOf(cout_int);
 
-		context.write(new Text(marque), new Text(new_value));*/
+		context.write(new Text(marque), new Text(new_value));
 	}
 }
